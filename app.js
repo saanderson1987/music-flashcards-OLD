@@ -20,4 +20,8 @@ io.on('connection', function (socket) {
   socket.on('my other event', function (data) {
     console.log(data);
   });
+  // socket.on('midi', receiveMidi);
+  socket.on('keydown', function (keyName) {
+    socket.emit('responseToKey', `You just pressed ${keyName}`);
+  })
 });
